@@ -14,6 +14,9 @@ UNAME = $(shell uname)
 ifeq ($(UNAME), Linux)
 CXX       = g++
 CPPFLAGS += $(OPTS) -Wall -pedantic
+else ifeq ($(UNAME), Darwin)
+CXX       = g++
+CPPFLAGS += $(OPTS) -Wall -pedantic
 endif
 
 #######################################

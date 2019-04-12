@@ -134,8 +134,13 @@ typedef unsigned short wchar_t;
 
 #endif  /* _WIN32 */
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#else
 #include <GL/gl.h>
 #include <GL/glu.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -153,7 +158,7 @@ _CRTIMP __declspec(noreturn) void __cdecl exit( int _Code);
 /* non-Win32 case. */
 /* Define APIENTRY and CALLBACK to nothing if we aren't on Win32. */
 
-// # define APIENTRY  // MJB
+# define APIENTRY  // MJB
 
 # define GLUT_APIENTRY_DEFINED
 # define CALLBACK
@@ -162,7 +167,7 @@ _CRTIMP __declspec(noreturn) void __cdecl exit( int _Code);
 # define GLUTCALLBACK
 /* Prototype exit for the non-Win32 case (see above). */
 
-// extern void exit(int);  // MJB
+extern void exit(int);  // MJB
 
 #endif
 
